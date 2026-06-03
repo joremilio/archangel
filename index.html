@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Archangel — Limpieza de Tenis a Domicilio · Cuernavaca</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'DM Sans', sans-serif; background: #111; color: #f0f0f0; min-height: 100vh; }
+
+  .container { max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem; }
+
+  /* NAV */
+  nav { display: flex; align-items: center; justify-content: space-between; padding: 1.25rem 2rem; border-bottom: 0.5px solid #ffffff18; }
+  .nav-brand { font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 0.25em; color: #3ddba0; }
+  .nav-ig { display: flex; align-items: center; gap: 8px; background: transparent; border: 1px solid #ffffff33; color: #f0f0f0; font-family: 'DM Sans', sans-serif; font-size: 13px; padding: 8px 16px; border-radius: 30px; cursor: pointer; text-decoration: none; transition: border-color 0.15s, color 0.15s; }
+  .nav-ig:hover { border-color: #3ddba0; color: #3ddba0; }
+
+  /* HERO */
+  .hero { background: #0d0d0d; border-radius: 16px; padding: 4rem 2rem 3rem; text-align: center; position: relative; overflow: hidden; margin-bottom: 1.5rem; }
+  .hero::before { content: ''; position: absolute; top: -80px; left: -80px; width: 320px; height: 320px; background: radial-gradient(circle, #ffffff07 0%, transparent 70%); }
+  .hero::after { content: ''; position: absolute; bottom: -60px; right: -60px; width: 260px; height: 260px; background: radial-gradient(circle, #3ddba022 0%, transparent 70%); }
+  .hero-badge { display: inline-block; background: #1a8c5e22; border: 1px solid #1a8c5e66; color: #3ddba0; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; padding: 5px 16px; border-radius: 20px; margin-bottom: 1.25rem; font-weight: 500; }
+  .hero-shoe { font-size: 72px; margin-bottom: 1rem; display: block; }
+  .hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: 72px; line-height: 1; color: #ffffff; margin-bottom: 0.4rem; letter-spacing: 0.02em; }
+  .hero h1 span { color: #3ddba0; }
+  .hero p { font-size: 16px; color: #aaa; max-width: 420px; margin: 0 auto 2rem; line-height: 1.65; font-weight: 300; }
+  .btn-primary { background: #3ddba0; color: #0a0a0a; font-family: 'DM Sans', sans-serif; font-weight: 500; font-size: 15px; border: none; padding: 15px 36px; border-radius: 40px; cursor: pointer; letter-spacing: 0.03em; transition: transform 0.15s, box-shadow 0.15s; text-decoration: none; display: inline-block; }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px #3ddba055; }
+
+  /* STATS */
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 1.5rem; }
+  .stat { background: #1a1a1a; border: 0.5px solid #ffffff18; border-radius: 10px; padding: 1.25rem; text-align: center; }
+  .stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 40px; color: #3ddba0; line-height: 1; }
+  .stat-label { font-size: 12px; color: #888; margin-top: 5px; }
+
+  /* SECTIONS */
+  .section { margin-bottom: 2.5rem; }
+  .section-title { font-family: 'Bebas Neue', sans-serif; font-size: 34px; letter-spacing: 0.03em; margin-bottom: 1rem; color: #f0f0f0; }
+  .section-title span { color: #3ddba0; }
+
+  /* HOW */
+  .how { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .step { background: #1a1a1a; border: 0.5px solid #ffffff18; border-radius: 14px; padding: 1.5rem; }
+  .step-num { font-family: 'Bebas Neue', sans-serif; font-size: 48px; color: #3ddba022; line-height: 1; margin-bottom: 0.5rem; }
+  .step-title { font-size: 14px; font-weight: 500; margin-bottom: 6px; color: #f0f0f0; }
+  .step-desc { font-size: 13px; color: #888; line-height: 1.55; }
+
+  /* PLANS */
+  .plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .plan { background: #161616; border: 0.5px solid #ffffff18; border-radius: 14px; padding: 1.5rem; }
+  .plan.featured { border: 2px solid #3ddba0; }
+  .plan-name { font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.12em; color: #888; margin-bottom: 0.5rem; }
+  .plan-price { font-family: 'Bebas Neue', sans-serif; font-size: 48px; line-height: 1; margin-bottom: 0.3rem; color: #f0f0f0; }
+  .plan-price sup { font-size: 20px; vertical-align: super; }
+  .plan.featured .plan-price { color: #3ddba0; }
+  .plan-desc { font-size: 11px; color: #666; margin-bottom: 1.25rem; }
+  .plan-feat { list-style: none; margin-bottom: 1.25rem; }
+  .plan-feat li { font-size: 13px; padding: 6px 0; border-bottom: 0.5px solid #ffffff10; color: #888; display: flex; align-items: center; gap: 8px; }
+  .plan-feat li:last-child { border-bottom: none; }
+  .check { color: #3ddba0; font-weight: 700; }
+  .btn-plan { width: 100%; padding: 11px; border-radius: 30px; font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500; cursor: pointer; border: 0.5px solid #ffffff33; background: transparent; color: #f0f0f0; transition: background 0.15s; }
+  .btn-plan:hover { background: #ffffff10; }
+  .plan.featured .btn-plan { background: #3ddba0; color: #0a0a0a; border-color: #3ddba0; }
+  .plan.featured .btn-plan:hover { background: #2ec48e; }
+  .pop-badge { display: inline-block; background: #3ddba0; color: #0a0a0a; font-size: 10px; font-weight: 600; padding: 3px 12px; border-radius: 10px; margin-bottom: 0.6rem; letter-spacing: 0.05em; }
+
+  /* REVIEWS */
+  .reviews { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .review { background: #1a1a1a; border: 0.5px solid #ffffff18; border-radius: 14px; padding: 1.5rem; }
+  .stars { color: #f0b429; font-size: 14px; margin-bottom: 0.6rem; }
+  .review-text { font-size: 13px; color: #999; line-height: 1.65; margin-bottom: 0.9rem; font-style: italic; }
+  .reviewer { font-size: 12px; font-weight: 500; color: #ccc; }
+  .reviewer span { font-weight: 400; color: #666; }
+
+  /* CTA */
+  .cta { background: #0d0d0d; border-radius: 16px; padding: 3rem 2rem; text-align: center; }
+  .cta-brand { font-family: 'Bebas Neue', sans-serif; font-size: 13px; letter-spacing: 0.3em; color: #3ddba0; margin-bottom: 0.75rem; display: block; }
+  .cta h2 { font-family: 'Bebas Neue', sans-serif; font-size: 48px; color: #ffffff; margin-bottom: 0.4rem; }
+  .cta h2 span { color: #3ddba0; }
+  .cta p { font-size: 15px; color: #888; margin-bottom: 1.75rem; font-weight: 300; }
+  .cta-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .btn-ig { background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); color: #fff; border: none; font-family: 'DM Sans', sans-serif; font-size: 14px; padding: 14px 30px; border-radius: 40px; cursor: pointer; font-weight: 500; display: inline-flex; align-items: center; gap: 9px; transition: transform 0.15s, opacity 0.15s; text-decoration: none; }
+  .btn-ig:hover { transform: translateY(-2px); opacity: 0.9; }
+  .btn-wa { background: #25d366; color: #fff; border: none; font-family: 'DM Sans', sans-serif; font-size: 14px; padding: 14px 30px; border-radius: 40px; cursor: pointer; font-weight: 500; display: inline-flex; align-items: center; gap: 9px; transition: transform 0.15s; text-decoration: none; }
+  .btn-wa:hover { transform: translateY(-2px); }
+
+  /* FOOTER */
+  footer { text-align: center; padding: 2rem 1rem 1.5rem; border-top: 0.5px solid #ffffff12; margin-top: 1.5rem; }
+  footer .footer-brand { font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 0.25em; color: #555; }
+  footer .footer-brand span { color: #3ddba0; }
+  footer .footer-sub { font-size: 12px; color: #444; margin-top: 4px; }
+
+  @media (max-width: 640px) {
+    .hero h1 { font-size: 52px; }
+    .stats, .how, .plans { grid-template-columns: 1fr; }
+    .reviews { grid-template-columns: 1fr; }
+    nav { padding: 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-brand">✦ ARCHANGEL</span>
+  <a class="nav-ig" href="https://www.instagram.com/archangel.snkrs" target="_blank">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+    @archangel.snkrs
+  </a>
+</nav>
+
+<div class="container">
+
+  <div class="hero">
+    <span class="hero-badge">Servicio a domicilio · Cuernavaca, Morelos</span>
+    <span class="hero-shoe">👟</span>
+    <h1>tus tenis,<br><span>como nuevos</span></h1>
+    <p>Limpieza profesional de tenis a domicilio. Llegamos a ti, recogemos, limpiamos y entregamos en 24 hrs.</p>
+    <a class="btn-primary" href="https://www.instagram.com/archangel.snkrs" target="_blank">Agendar ahora ↗</a>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><div class="stat-num">500+</div><div class="stat-label">Tenis restaurados</div></div>
+    <div class="stat"><div class="stat-num">24h</div><div class="stat-label">Entrega garantizada</div></div>
+    <div class="stat"><div class="stat-num">5★</div><div class="stat-label">Calificación promedio</div></div>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">¿Cómo <span>funciona?</span></h2>
+    <div class="how">
+      <div class="step"><div class="step-num">01</div><div class="step-title">Agenda</div><div class="step-desc">Elige horario y dirección. Te confirmamos en minutos por Instagram o WhatsApp.</div></div>
+      <div class="step"><div class="step-num">02</div><div class="step-title">Recogemos</div><div class="step-desc">Pasamos a tu casa o trabajo en Cuernavaca a recoger tus tenis.</div></div>
+      <div class="step"><div class="step-num">03</div><div class="step-title">Entregamos</div><div class="step-desc">Limpios, frescos y como nuevos en menos de 24 hrs directo a tu puerta.</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">Nuestros <span>planes</span></h2>
+    <div class="plans">
+      <div class="plan">
+        <div class="plan-name">Básico</div>
+        <div class="plan-price"><sup>$</sup>149</div>
+        <div class="plan-desc">Por par · precio fijo</div>
+        <ul class="plan-feat">
+          <li><span class="check">✓</span> Limpieza exterior</li>
+          <li><span class="check">✓</span> Suela y agujetas</li>
+          <li><span class="check">✓</span> Entrega en 48 hrs</li>
+          <li>— Limpieza interior</li>
+          <li>— Blanqueado</li>
+        </ul>
+        <a class="btn-plan" href="https://www.instagram.com/archangel.snkrs" target="_blank">Elegir básico</a>
+      </div>
+      <div class="plan featured">
+        <div class="pop-badge">MÁS POPULAR</div>
+        <div class="plan-name">Pro</div>
+        <div class="plan-price"><sup>$</sup>249</div>
+        <div class="plan-desc">Por par · precio fijo</div>
+        <ul class="plan-feat">
+          <li><span class="check">✓</span> Limpieza profunda</li>
+          <li><span class="check">✓</span> Interior y exterior</li>
+          <li><span class="check">✓</span> Blanqueado de suela</li>
+          <li><span class="check">✓</span> Entrega en 24 hrs</li>
+          <li><span class="check">✓</span> Protector antidust</li>
+        </ul>
+        <a class="btn-plan" href="https://www.instagram.com/archangel.snkrs" target="_blank">Elegir Pro ↗</a>
+      </div>
+      <div class="plan">
+        <div class="plan-name">Premium</div>
+        <div class="plan-price"><sup>$</sup>399</div>
+        <div class="plan-desc">Por par · precio fijo</div>
+        <ul class="plan-feat">
+          <li><span class="check">✓</span> Restauración total</li>
+          <li><span class="check">✓</span> Retoque de color</li>
+          <li><span class="check">✓</span> Blanqueado UV</li>
+          <li><span class="check">✓</span> Entrega express</li>
+          <li><span class="check">✓</span> Garantía 30 días</li>
+        </ul>
+        <a class="btn-plan" href="https://www.instagram.com/archangel.snkrs" target="_blank">Elegir Premium</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">Lo que dicen <span>nuestros clientes</span></h2>
+    <div class="reviews">
+      <div class="review">
+        <div class="stars">★★★★★</div>
+        <p class="review-text">"Mis Jordan 1s quedaron increíbles. Los habían manchado con barro y parecen de caja. ¡Archangel es lo mejor!"</p>
+        <div class="reviewer">Carlos M. <span>· Col. Lomas de Cortés</span></div>
+      </div>
+      <div class="review">
+        <div class="stars">★★★★★</div>
+        <p class="review-text">"Rapidísimo y muy profesional. Recogieron en la mañana y en la tarde ya tenía mis tenis limpios en casa."</p>
+        <div class="reviewer">Valeria R. <span>· Col. Chapultepec</span></div>
+      </div>
+      <div class="review">
+        <div class="stars">★★★★★</div>
+        <p class="review-text">"El plan Premium valió cada peso. Mis Yeezys viejos parecen nuevos. No cobran el traslado, genial."</p>
+        <div class="reviewer">Diego F. <span>· Col. Vista Hermosa</span></div>
+      </div>
+      <div class="review">
+        <div class="stars">★★★★☆</div>
+        <p class="review-text">"Muy buen servicio. Mis tenis de correr quedaron impecables y sin mal olor. Volveré a usar Archangel."</p>
+        <div class="reviewer">Sofía L. <span>· Col. Jardines de Cuernavaca</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta">
+    <span class="cta-brand">✦ ARCHANGEL ✦</span>
+    <h2>¿listo para<br><span>estrenarlos de nuevo?</span></h2>
+    <p>Primera limpieza con 20% de descuento — solo por hoy.</p>
+    <div class="cta-row">
+      <a class="btn-ig" href="https://www.instagram.com/archangel.snkrs" target="_blank">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        @archangel.snkrs
+      </a>
+      <a class="btn-wa" href="https://wa.me/527773374818?text=Hola%2C%20me%20interesa%20el%20servicio%20de%20limpieza%20de%20tenis%20a%20domicilio%20de%20Archangel.%20%C2%BFMe%20pueden%20dar%20m%C3%A1s%20informaci%C3%B3n%3F%20%F0%9F%91%9F" target="_blank">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-brand">✦ <span>ARCHANGEL</span> · Cuernavaca, Morelos ✦</div>
+  <div class="footer-sub">Limpieza profesional de tenis a domicilio</div>
+</footer>
+
+</body>
+</html>
